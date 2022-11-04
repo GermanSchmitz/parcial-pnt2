@@ -118,7 +118,7 @@
                             <td>{{ post.importe }}</td>
                             <td>{{ post.fecha }}</td>
                         </tr>
-                        <tr v-if=" sumarDetalle <= presupuesto">
+                        <tr v-if=" sumarDetalle >= presupuesto">
                             <td></td>
                             <td :style="{ color: this.calcularColor }">
                                 TOTAL
@@ -167,7 +167,6 @@ export default {
                 descripcion: null,
                 importe: null,
                 fecha: null,
-                
             };
         },
         enviar() {
