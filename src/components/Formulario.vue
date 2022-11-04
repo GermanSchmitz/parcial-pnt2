@@ -118,20 +118,20 @@
                             <td>{{ post.importe }}</td>
                             <td>{{ post.fecha }}</td>
                         </tr>
-                        <tr v-if=" sumarDetalle >= presupuesto">
-                            <td></td>
-                            <td :style="{ color: this.calcularColor }">
-                                TOTAL
-                            </td>
-                            <td  :style="{ color: this.calcularColor }"> {{ this.sumarDetalle }}</td>
-                            <td></td>
-                        </tr>
-                        <tr v-else>
+                        <tr v-if=" sumarDetalle > presupuesto">
                             <td></td>
                             <td :style="{ color: presupuestoInsuficiente} ">
                                 TOTAL
                             </td>
                             <td  :style="{ color: presupuestoInsuficiente} "> {{ this.sumarDetalle }}</td>
+                            <td></td>
+                        </tr>
+                        <tr v-else>
+                            <td></td>
+                            <td :style="{ color: this.calcularColor }">
+                                TOTAL
+                            </td>
+                            <td  :style="{ color: this.calcularColor }"> {{ this.sumarDetalle }}</td>
                             <td></td>
                         </tr>
                     </table>
