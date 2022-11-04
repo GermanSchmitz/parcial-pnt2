@@ -102,7 +102,7 @@
                     class="form-control"
                     style="max-width: 50%"
                     placeholder="Ingrese su presupuesto"
-                    v-model.number="formData.presupuesto"
+                    v-model.number="presupuesto"
                 />
                 <div class="table-responsive">
                     <table class="table">
@@ -118,7 +118,7 @@
                             <td>{{ post.importe }}</td>
                             <td>{{ post.fecha }}</td>
                         </tr>
-                        <tr v-if=" sumarDetalle <= formData.presupuesto">
+                        <tr v-if=" sumarDetalle <= presupuesto">
                             <td></td>
                             <td :style="{ color: this.calcularColor }">
                                 TOTAL
@@ -156,6 +156,7 @@ export default {
             nombreMinLength: 3,
             nombreMaxLength: 15,
             posts: [],
+            presupuesto: null,
             presupuestoInsuficiente: "#FF0000"
         };
     },
@@ -166,7 +167,7 @@ export default {
                 descripcion: null,
                 importe: null,
                 fecha: null,
-                presupuesto: null
+                
             };
         },
         enviar() {
